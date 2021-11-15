@@ -1,0 +1,13 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  labels:
+    app: springboot-tekton-s2i-demo
+  name: springboot-tekton-s2i-demo
+spec:
+  port:
+    targetPort: 8080
+  to:
+    kind: Service
+    name: springboot-tekton-s2i-demo
+    weight: 100

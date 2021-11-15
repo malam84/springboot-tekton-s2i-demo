@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: springboot-tekton-s2i-demo
+  name: springboot-tekton-s2i-demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: springboot-tekton-s2i-demo
+  template:
+    metadata:
+      labels:
+        app: springboot-tekton-s2i-demo
+    spec:
+      containers:
+      - image: quay.io/malam/springboot-tekton-s2i-demo:latest
+        imagePullPolicy: Always
+        name: springboot-tekton-s2i-demo
+        ports:
+        - containerPort: 8080
+          protocol: TCP

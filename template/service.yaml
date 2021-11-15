@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: springboot-tekton-s2i-demo
+  name: springboot-tekton-s2i-demo
+spec:
+  ports:
+    - name: 8080-tcp
+      port: 8080
+      targetPort: 8080
+      protocol: TCP
+  selector:
+    app: springboot-tekton-s2i-demo
